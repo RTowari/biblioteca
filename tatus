@@ -1,0 +1,6 @@
+src/main/java/interfaces/IControladorAltaLector.java
+src/main/java/logica/ArticuloEspecial.java
+src/main/java/presentacion/Principal.java
+target/classes/META-INF/persistence.xml
+target/classes/datatypes/DtMaterial.class
+target/classes/logica/ManejadorMaterial.class

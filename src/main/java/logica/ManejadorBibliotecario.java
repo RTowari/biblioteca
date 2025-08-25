@@ -1,26 +1,25 @@
 package logica;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.Query;
-
 import persistencia.Conexion;
 
-public class ManejadorMaterial {
+public class ManejadorBibliotecario {
+    private static ManejadorBibliotecario instance = null;
 
-    private static ManejadorMaterial instancia = null;
+    private ManejadorBibliotecario() {}
 
-    public static ManejadorMaterial getInstancia() {
-        if (instancia == null) {
-            instancia = new ManejadorMaterial();
+    public static ManejadorBibliotecario getInstance() {
+        if (instance == null) {
+            instance = new ManejadorBibliotecario();
         }
-        return instancia;
+        return instance;
     }
 
-    public void agregarMaterial(Material material) {
+    public void agregarBibliotecario(Bibliotecario bibliotecario) {
         EntityManager em = Conexion.getInstancia().getEntityManager();
         try {
             em.getTransaction().begin();
-            em.persist(material);
+            em.persist(bibliotecario);
             em.getTransaction().commit();
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
@@ -32,10 +31,10 @@ public class ManejadorMaterial {
         }
     }
 
-    public Material buscarMaterial(int id) {
+    public Bibliotecario buscarBibliotecario(String nombre) {
         EntityManager em = Conexion.getInstancia().getEntityManager();
         try {
-            return em.find(Material.class, id);
+            return em.find(Bibliotecario.class, nombre);
         } finally {
             em.close();
         }

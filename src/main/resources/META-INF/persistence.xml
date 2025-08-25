@@ -9,7 +9,7 @@
         <!-- Entity classes -->
         <class>logica.Usuario</class>
         <class>logica.Material</class>
-        <class>logica.ArticuloEspecial</class>
+        <class>logica.Articulo</class>
         <class>logica.Prestamo</class>
         <class>logica.Lector</class>
         <class>logica.Bibliotecario</class>

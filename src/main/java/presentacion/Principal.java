@@ -23,6 +23,7 @@ public class Principal {
     private EstadoLectorFrame estadoLectorInternalFrame;
     private AltaLibro altaLibroInternalFrame;
     private ModificarZonaLectorFrame modificarZonaInternalFrame;
+    private AltaDonacionEspecial altaDonacionEspecialInternalFrame;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
@@ -86,6 +87,14 @@ public class Principal {
         );
         modificarZonaInternalFrame.setVisible(false);
         frame.getContentPane().add(modificarZonaInternalFrame);
+
+        altaDonacionEspecialInternalFrame = new AltaDonacionEspecial(controladorMaterial);
+        altaDonacionEspecialInternalFrame.setLocation(
+                (desktopSize.width - altaDonacionEspecialInternalFrame.getSize().width) / 2,
+                (desktopSize.height - altaDonacionEspecialInternalFrame.getSize().height) / 2
+        );
+        altaDonacionEspecialInternalFrame.setVisible(false);
+        frame.getContentPane().add(altaDonacionEspecialInternalFrame);
     }
 
     private void initialize() {
@@ -122,5 +131,9 @@ public class Principal {
         JMenuItem mntmAltaLibro = new JMenuItem("Registrar libro");
         mntmAltaLibro.addActionListener(e -> altaLibroInternalFrame.setVisible(true));
         mnDonaciones.add(mntmAltaLibro);
+
+        JMenuItem mntmAltaDonacionEspecial = new JMenuItem("Registrar artículo especial");
+        mntmAltaDonacionEspecial.addActionListener(e -> altaDonacionEspecialInternalFrame.setVisible(true));
+        mnDonaciones.add(mntmAltaDonacionEspecial);
     }
 }
